@@ -11,22 +11,15 @@ import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
-    ArrayList<String> data = new ArrayList<>();
+    ArrayList<Car> data = new ArrayList<>();
+
+    public ICarListener listener;
 
 
-
-
-
-    public void addElement() {
-        data.add("Element: "+data.size());
+    public void addElement(Car car) {
+        data.add(car);
         notifyDataSetChanged();
-
     }
-
-//    public void removeElement() {
-//        data.remove(data.size());
-//        notifyDataSetChanged();
-//    }
 
 
     @NonNull
@@ -34,7 +27,11 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.view_holder_main, parent, false);
-        return new MainViewHolder(view);
+
+        MainViewHolder holder = new MainViewHolder(view);
+        holder.listener = listener;
+
+        return holder;
     }
 
     @Override
@@ -43,7 +40,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
     }
 
     @Override
-    public int getItemCount() {
-        return data.size();
+    public int getItemCount() { return data.size();
     }
 }

@@ -24,14 +24,6 @@
         android:onClick="onAddElement"
         />
 
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/minus"-->
-<!--        android:layout_margin="10dp"-->
-<!--        app:layout_constraintEnd_toStartOf=""-->
-<!--        app:layout_constraintTop_toTopOf="@id/add_element"-->
-<!--        bottomto-->
-<!--        />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
