@@ -13,37 +13,42 @@ import java.text.SimpleDateFormat;
 public class MainViewHolder extends RecyclerView.ViewHolder {
 
     TextView modelTV;
-    TextView bodyTV;
-    TextView colorTV;
+    TextView groupTV;
+    TextView nameTV;
     TextView yearTV;
 
     public ICarListener listener;
 
-    Car car;
+    Student student;
 
     public MainViewHolder(@NonNull final View itemView) {
         super(itemView);
-        modelTV = itemView.findViewById(R.id.tv_vh_model);
-        bodyTV = itemView.findViewById(R.id.tv_vh_body);
-        colorTV = itemView.findViewById(R.id.tv_vh_color);
+        modelTV = itemView.findViewById(R.id.tv_vh_surname);
+        groupTV = itemView.findViewById(R.id.tv_vh_group);
+        nameTV = itemView.findViewById(R.id.tv_vh_name);
         yearTV = itemView.findViewById(R.id.tv_vh_year);
 
-        itemView.setOnClickListener(new View.OnClickListener() {
+
+
+  
+
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View v) {
-                listener.onCarClick(car);
+            public boolean onLongClick(View v) {
+                listener.onCarClick(student);
+                return true;
             }
         });
 
     }
 
-    public void onBind(Car car) {
-        this.car = car;
-        modelTV.setText(car.model);
-        colorTV.setText(car.color);
-        bodyTV.setText(car.body);
+    public void onBind(Student student) {
+        this.student = student;
+        modelTV.setText(student.surname);
+        nameTV.setText(student.name);
+        groupTV.setText(student.group);
         @SuppressLint("SimpleDateFormat") DateFormat date =  new SimpleDateFormat("yyyy.MM.dd");
 
-        yearTV.setText(date.format(car.year));
+        yearTV.setText(date.format(student.year));
     }
 }

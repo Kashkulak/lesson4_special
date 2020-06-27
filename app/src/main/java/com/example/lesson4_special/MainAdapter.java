@@ -11,13 +11,13 @@ import java.util.ArrayList;
 
 public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
-    ArrayList<Car> data = new ArrayList<>();
+    ArrayList<Student> data = new ArrayList<>();
 
     public ICarListener listener;
 
 
-    public void addElement(Car car) {
-        data.add(car);
+    public void addElement(Student student) {
+        data.add(student);
         notifyDataSetChanged();
     }
 

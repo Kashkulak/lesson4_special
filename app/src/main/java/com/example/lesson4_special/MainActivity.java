@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity implements ICarListener {
@@ -40,17 +39,16 @@ public class MainActivity extends AppCompatActivity implements ICarListener {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == ADD_ACTIVITY && resultCode == RESULT_OK) {
             assert data != null;
-            Car car = (Car) data.getSerializableExtra("car");
-            assert car != null;
-            Log.d("ololo", "" + car.model + "  " + car.color);
-            mainAdapter.addElement(car);
+            Student student = (Student) data.getSerializableExtra("car");
+            assert student != null;
+            mainAdapter.addElement(student);
         }
     }
 
     @Override
-    public void onCarClick(Car car) {
+    public void onCarClick(Student student) {
         Intent intent = new Intent(this, AddActivity.class);
-        intent.putExtra("car", car);
+        intent.putExtra("car", student);
         startActivity(intent);
     }
 }

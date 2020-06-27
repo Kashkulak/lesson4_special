@@ -8,22 +8,22 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/et_color"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter color..."
+        android:hint="Enter name..."
         />
    <EditText
-        android:id="@+id/et_model"
+        android:id="@+id/et_surname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter model..."
+        android:hint="Enter surname..."
         />
    <EditText
-        android:id="@+id/et_body"
+        android:id="@+id/et_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter body..."
+        android:hint="Enter group..."
         />
 
     <LinearLayout
