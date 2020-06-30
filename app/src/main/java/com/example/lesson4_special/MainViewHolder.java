@@ -12,7 +12,7 @@ import java.text.SimpleDateFormat;
 
 public class MainViewHolder extends RecyclerView.ViewHolder {
 
-    TextView modelTV;
+    TextView surnameTV;
     TextView groupTV;
     TextView nameTV;
     TextView yearTV;
@@ -23,32 +23,26 @@ public class MainViewHolder extends RecyclerView.ViewHolder {
 
     public MainViewHolder(@NonNull final View itemView) {
         super(itemView);
-        modelTV = itemView.findViewById(R.id.tv_vh_surname);
+        surnameTV = itemView.findViewById(R.id.tv_vh_surname);
         groupTV = itemView.findViewById(R.id.tv_vh_group);
         nameTV = itemView.findViewById(R.id.tv_vh_name);
         yearTV = itemView.findViewById(R.id.tv_vh_year);
 
 
-
-  
-
-        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+        itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 listener.onCarClick(student);
-                return true;
             }
         });
-
     }
 
     public void onBind(Student student) {
         this.student = student;
-        modelTV.setText(student.surname);
+        surnameTV.setText(student.surname);
         nameTV.setText(student.name);
         groupTV.setText(student.group);
-        @SuppressLint("SimpleDateFormat") DateFormat date =  new SimpleDateFormat("yyyy.MM.dd");
-
+        @SuppressLint("SimpleDateFormat") DateFormat date = new SimpleDateFormat("YYYY.MM.dd");
         yearTV.setText(date.format(student.year));
     }
 }

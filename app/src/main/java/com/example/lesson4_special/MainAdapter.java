@@ -13,11 +13,18 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
 
     ArrayList<Student> data = new ArrayList<>();
 
+    private final int number = 0;
     public ICarListener listener;
 
 
     public void addElement(Student student) {
-        data.add(student);
+        data.add(number, student);
+        notifyDataSetChanged();
+
+    }
+
+    public void setElement(Student student) {
+        data.set(number, student);
         notifyDataSetChanged();
     }
 
@@ -40,6 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainViewHolder> {
     }
 
     @Override
-    public int getItemCount() { return data.size();
+    public int getItemCount() {
+        return data.size();
     }
 }
